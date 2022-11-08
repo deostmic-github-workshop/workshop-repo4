@@ -5,7 +5,7 @@
   </target>
 
   <target name="zip" description="create release zip file">
-    <exec executable="git" outputproperty="tag"><arg line="log"/></exec>
+    <exec executable="git" outputproperty="tag"><arg line="describe --abbrev=0"/></exec>
     <echo>${tag}</echo>
     <zip destfile="release/${ant.project.name}.zip">
       <zipfileset dir="." excludes="release/** src/** *.json *.xml" prefix="${ant.project.name}"/>
